@@ -119,7 +119,7 @@ class Academy:
     def update_record(self):
         self.display_all_records()
         temp = []
-        row = input("Enter the name key you would like to update: ")
+        row = input("Enter the student name you would like to update: ")
         with open('student.csv', 'r', newline='') as file:
             reader = csv.reader(file)
             fileTitles = next(reader)
@@ -160,7 +160,7 @@ class Academy:
     def delete_record(self):
         self.display_all_records()
         temp = []
-        row = input("Enter the name key you would like to delete: ")
+        row = input("Enter the student name you would like to delete: ")
         with open('student.csv', 'r', newline='') as file:
             reader = csv.reader(file)
             fileTitles = next(reader)

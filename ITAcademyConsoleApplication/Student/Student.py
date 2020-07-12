@@ -22,13 +22,12 @@ class Student:
 
     def save_record(self):
         with open('./student.csv', 'a+', newline='') as file:
-
-            df = pan.read_csv('./student.csv')
+            # df = pan.read_csv('./student.csv')
             fileTitles = ['name', 'emailAddress', 'phoneNumber', 'collegeName',
                           'course', 'depositAmount', 'remainingAmount']
             writer = csv.DictWriter(file, fieldnames=fileTitles)
 
-            if df.empty:
+            if file.tell() == 0:
                 writer.writeheader()
 
             writer.writerow(
