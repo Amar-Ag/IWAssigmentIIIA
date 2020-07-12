@@ -21,15 +21,15 @@ class Academy:
         """
         Main code to drive the whole console application based on user choice.
         """
-        print("Welcome to IT Academy!")
-        print("Please choose an action:")
+        print("\nWelcome to IT Academy!")
+        print("\nPlease choose an action:")
         try:
-            userChoice = int(input("\nPress 1 to enquire about course."
+            userChoice = int(input("Press 1 to enquire about course."
                                    "\nPress 2 to register a student."
                                    "\nPress 3 to display all students."
                                    "\nPress 4 to update a student record."
                                    "\nPress 5 to delete a student record."
-                                   "\nPress any other key to exit"
+                                   "\nPress any other key to exit.:\n"
                                    )
                              )
 
@@ -64,7 +64,7 @@ class Academy:
         try:
             userChoice = int(input("Please choose an option:"
                                    "\n Press 1 to register for the course."
-                                   "\n Press 0 to exit and go back to the previous menu."
+                                   "\n Press 0 to exit and go back to the previous menu.\n"
                                    )
                              )
 
@@ -113,10 +113,16 @@ class Academy:
             self.enquiry_course()
 
     def display_all_records(self):
+        """
+        Displays all the student records.
+        """
         allStudents = pan.read_csv('student.csv')
         print(allStudents)
 
     def update_record(self):
+        """
+        Updates a particular student record based on the name value.
+        """
         self.display_all_records()
         temp = []
         row = input("Enter the student name you would like to update: ")
@@ -142,7 +148,7 @@ class Academy:
                         print("Second installment of 10000 is due. You can enter the same or skip it for later.")
                         try:
                             dueAmountChoice = int(
-                                "Press 1 to pay the remaining dues or any other key to skip for later.")
+                                "Press 1 to pay the remaining dues or any other key to skip for later.\n")
                             if dueAmountChoice == 1:
                                 i[5] = 20000
                             else:
@@ -158,6 +164,7 @@ class Academy:
             print("Successfully updated the record.")
 
     def delete_record(self):
+        """Deletes a particular student record based on the name value."""
         self.display_all_records()
         temp = []
         row = input("Enter the student name you would like to delete: ")
