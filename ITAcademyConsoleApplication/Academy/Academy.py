@@ -116,8 +116,12 @@ class Academy:
         """
         Displays all the student records.
         """
-        allStudents = pan.read_csv('student.csv')
-        print(allStudents)
+        try:
+            allStudents = pan.read_csv('student.csv')
+            print(allStudents)
+        except:
+            print("There are no student records to show.")
+            self.main_application()
 
     def update_record(self):
         """
@@ -137,25 +141,25 @@ class Academy:
                     emailAddress = str(input("Enter your email address:"))
                     phoneNumber = str(input("Enter your phone number:"))
                     collegeName = str(input("Enter your college Name:"))
-                    i[0] = name
-                    i[1] = emailAddress
-                    i[2] = phoneNumber
-                    i[3] = collegeName
+                    i[0] = name or i[0]
+                    i[1] = emailAddress or i[1]
+                    i[2] = phoneNumber or i[2]
+                    i[3] = collegeName or i[3]
                     i[4] = self.courseOfStudy["Name"]
                     if i[5] == 20000:
                         print("All dues already cleared.")
                     else:
                         print("Second installment of 10000 is due. You can enter the same or skip it for later.")
                         try:
-                            dueAmountChoice = int(
-                                "Press 1 to pay the remaining dues or any other key to skip for later.\n")
+                            dueAmountChoice = int(input(
+                                "Press 1 to pay the remaining dues or any other key to skip for later.\n"))
                             if dueAmountChoice == 1:
                                 i[5] = 20000
                             else:
                                 i[5] = 10000
                         except ValueError:
                             i[5] = 10000
-                    i[6] == 20000 - i[5]
+                    i[6] = 20000 - i[5]
 
         with open("student.csv", 'w', newline='') as file:
             writer = csv.writer(file)
